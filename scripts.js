@@ -1,5 +1,4 @@
 (() => {
-    console.log('testing')
     function bind(nodes, event, handler) {
         Array.from(nodes).forEach(node => {
             node.addEventListener(event, handler);

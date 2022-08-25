@@ -1,7 +1,8 @@
 (() => {
-    function bind(nodes, event, handler) {
+    function bindTabs(nodes, onClick, onKeyDown) {
         Array.from(nodes).forEach(node => {
-            node.addEventListener(event, handler);
+            node.addEventListener('click', onClick);
+            node.addEventListener('keydown', onKeyDown);
         });
     }
     function selectTab(node, select, newId) {
@@ -41,29 +42,22 @@
             selectTab(node, select, newId)
         });
 
-
-        bind(tabs, 'click', event => {
+        bindTabs(tabs, event => {
             const newId = event.target.dataset.id;
             selectTab(node, select, newId)
-        });
-
-        bind(tabs, 'keydown', event => {
+        }, event => {
             if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
                 return;
             }
 
             let index = list.indexOf(selected);
             if (event.which === 37) {
-                // left
                 --index;
             } else if (event.which === 39) {
-                // right
                 ++index;
             } else if (event.which === 36) {
-                // home
                 index = 0;
             } else if (event.which === 35) {
-                // end
                 index = list.length - 1;
             } else {
                 return;
@@ -77,7 +71,7 @@
 
             selectTab(node, select, list[index]);
             event.preventDefault();
-        });
+        })
     }
 
     function makeMenu(node) {

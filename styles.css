@@ -452,30 +452,24 @@ html, body {
     background-size: contain;
 }
 
-.event__icon {
-    background-image: url(assets/sprite.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 .event__icon_temp {
-    background-position: 75% 80%;
+    background-image: url(assets/icon_temperature.svg);
 }
 
 .event__icon_temp2 {
-    background-position: 50% 60%;
+    background-image: url(assets/icon_temperature_2.svg);
 }
 
 .event__icon_light {
-    background-position: 25% 40%;
+    background-image: url(assets/icon_sun.svg);
 }
 
 .event__icon_light2 {
-    background-position: 0 20%;
+    background-image: url(assets/icon_sun_2.svg);
 }
 
 .event__icon_schedule {
-    background-position: 0 20%;
+    background-image: url(assets/icon_scheduled.svg);
 }
 
 .event__title {
